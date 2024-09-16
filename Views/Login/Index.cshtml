@@ -1,0 +1,129 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Index</title>
+    @Styles.Render("~/Content/css")
+    <style>
+        .form-structor {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .signup, .login {
+            background: white;
+            padding: 3rem;
+            width: 400px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: all 0.6s ease;
+        }
+
+        .form-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-holder {
+            margin-bottom: 1.5rem;
+        }
+
+        .input {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background-color: #4e73df;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .submit-btn:hover {
+                background-color: #2e59d9;
+            }
+
+        .bg-gradient-primary {
+            background: linear-gradient(90deg, #4e73df, #224abe);
+        }
+
+        .slide-up {
+            transform: translateY(-100%);
+        }
+
+        .text-gray-900 {
+            color: #3a3b45;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-gradient-primary">
+    <div class="container">
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <!-- Formulario de Login -->
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Bienvenido</h1>
+                                    </div>
+                                    <form class="user" action="@Url.Action("Index", "Login")" method="post">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user" name="correo" placeholder="Email" value="edwinsmith128@gmail.com" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user" name="clave" placeholder="Password" value="123" required>
+                                        </div>
+                                        <div class="form-group">
+                                            @{
+                                                if (ViewBag.Error != null)
+                                                {
+                                                    <div class="alert alert-danger" role="alert">
+                                                        @ViewBag.Error
+                                                    </div>
+                                                }
+                                            }
+                                        </div>
+                                        <button class="btn btn-primary btn-block btn-user" type="submit">Ingresar</button>
+                                    </form>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
